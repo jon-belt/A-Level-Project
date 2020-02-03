@@ -2,7 +2,6 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
-<title>Page Title</title>
 
 	<div class="topnav">
 		<a class="active" href="#home">Home</a>
@@ -10,6 +9,13 @@
 		<a href="#forum">Forum</a>
 		<a href="#profile">My Profile</a>
 	</div>
+
+    {% if title %}
+        <title>Flask Blog - {{ title }}</title>
+    {% else %}
+        <title>Flask Blog</title>
+    {% endif %}
+
 </head>
 <body>
 

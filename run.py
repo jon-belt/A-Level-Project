@@ -7,9 +7,9 @@ def home():
     return render_template('home.html', title='Home')
 
 
-@app.route("/about")
+@app.route("/login")
 def about():
-    return render_template('about.html', title='About')
+    return render_template('login.html', title='Login')
 
 
 if __name__ == '__main__':

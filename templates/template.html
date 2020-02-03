@@ -2,19 +2,21 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
+<title>Page Title</title>
 
 	<div class="topnav">
 		<a class="active" href="#home">Home</a>
 		<a href="#ask">Ask a Quesiton</a>
 		<a href="#forum">Forum</a>
 		<a href="#profile">My Profile</a>
+        <img src="WhiteLogo.png" width="10%" alt="Logo" style=" padding:10px 20px 10px 0px;" align="right">
 	</div>
 
-    {% if title %}
-        <title>Flask Blog - {{ title }}</title>
-    {% else %}
-        <title>Flask Blog</title>
-    {% endif %}
+	{% if title %}
+	<title>Flask Blog - {{ title }}</title>
+	{% else %}
+	<title>Flask Blog</title>
+	{% endif %}
 
 </head>
 <body>

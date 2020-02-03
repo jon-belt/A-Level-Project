@@ -1,38 +1,31 @@
-/* Stlying for body */
+
+/* body Styling */
 	body {
-		background-color: white;
-		text-align: center;
-		color: black;
+		margin: 0;
 		font-family: Arial, Helvetica, sans-serif;}
-	
-/* Stlying for topnav */
+
+/* .topnav Styling */
 	.topnav {
-		text-align: center;
-		background-color: white;
-		overflow: hidden;}
-	
-/* Stlying for text in topnav */
+		overflow: hidden;
+		background-color: #003e50;
+		align: center;}
+
+/* Style the text inside the navigation bar */
 	.topnav a {
-		text-align: center;
-		font-weight: bold;
-		color: white;
-		background-color: blue;
-		padding: 14px 30px;
-  		text-decoration: none;
-  		font-size: 17px;}
-	
-/* Stlying for the active page, and hover, on topnav */
-	.topnav a:hover,.topnav a.active {
-		background-color: aqua;
+		margin: auto;
+		color: #f2f2f2;
+		image-align: right;
+		text-align: center center;
+		padding: 40px 10px 80px 10px;;
+		text-decoration: none;
+		font-size: 25px;}
+
+/* Change the color of links on hover */
+	.topnav a:hover {
+		background-color: #00141b;
 		color: white;}
 
-/* Stlying main centered elements of the page */
-	.center {
-    		margin: auto;
-		width: 50%;
- 		height: 20%;
-		border: 5px solid blue;
-        	border-radius: 25px;
-        	background: blue;
-		font-size: 35px;
-        	color: white;}
+/* Add a color to the active/current link */
+	.topnav a.active {
+		background-color: #57b0cd;
+		color: white;}

@@ -1,0 +1,38 @@
+/* Stlying for body */
+	body {
+		background-color: white;
+		text-align: center;
+		color: black;
+		font-family: Arial, Helvetica, sans-serif;}
+	
+/* Stlying for topnav */
+	.topnav {
+		text-align: center;
+		background-color: white;
+		overflow: hidden;}
+	
+/* Stlying for text in topnav */
+	.topnav a {
+		text-align: center;
+		font-weight: bold;
+		color: white;
+		background-color: blue;
+		padding: 14px 30px;
+  		text-decoration: none;
+  		font-size: 17px;}
+	
+/* Stlying for the active page, and hover, on topnav */
+	.topnav a:hover,.topnav a.active {
+		background-color: aqua;
+		color: white;}
+
+/* Stlying main centered elements of the page */
+	.center {
+    		margin: auto;
+		width: 50%;
+ 		height: 20%;
+		border: 5px solid blue;
+        	border-radius: 25px;
+        	background: blue;
+		font-size: 35px;
+        	color: white;}

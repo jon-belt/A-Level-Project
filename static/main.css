@@ -29,3 +29,15 @@
 	.topnav a.active {
 		background-color: #57b0cd;
 		color: white;}
+
+/* CSS for centred images & text */
+	.centre {
+		margin: auto;
+		width: 50%;
+		border: 3px solid #003e50;
+		padding: 10px;}
+
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;}

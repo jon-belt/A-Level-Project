@@ -31,13 +31,11 @@
 		color: white;}
 
 /* CSS for centred images & text */
-	.centre {
-		margin: auto;
+	.center {
 		width: 50%;
 		border: 3px solid #003e50;
-		padding: 10px;}
-
-	img {
+		padding: 10px;
 		display: block;
 		margin-left: auto;
-		margin-right: auto;}
+		margin-right: auto;
+		overflow: auto;}

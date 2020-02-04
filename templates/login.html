@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<style>
+		img {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;}
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 	<title>Login Page</title>
 </head>
 <body>
 
-<div class="centre">
+<div class="center">
 	<img src="{{ url_for('static', filename='Logo.png') }}" alt="Logo" width="30%">
-	<h1 align="center">Login</h1>
+	<h1>Login</h1>
 </div>
 
 

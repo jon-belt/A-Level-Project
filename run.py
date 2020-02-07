@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
+app.config['SECRET KEY'] = 'd0f59ff548e889290c6bf21f05d52afc'
+
 @app.route("/")
 @app.route("/home")     #defines the HTML loaded for /home
 def home():

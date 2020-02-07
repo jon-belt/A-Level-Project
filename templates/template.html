@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/static/main.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
 <title>Page Title</title>
 
 	<div class="topnav">
@@ -9,7 +9,7 @@
 		<a href="#ask">Ask a Quesiton</a>
 		<a href="#forum">Forum</a>
 		<a href="#profile">My Profile</a>
-        <img src="/static/WhiteLogo.png" width="10%" alt="Logo" style=" padding:10px 20px 10px 0px; bottom: auto;" align="right">
+        <img src="/static/WhiteLogo.png" width="10%" alt="Logo" style=" padding:10px 20px 10px 0px; bottom: auto;" align="right" class="logo">
 	</div>
 
 	{% if title %}

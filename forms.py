@@ -5,4 +5,4 @@ class LoginForm(FlaskForm):
     email = StringField('Email')
     password = PasswordField('Password')
     remember = BooleanField('Remember me')
-    SubmitField = ('Submit')
+    submit = SubmitField('Submit')

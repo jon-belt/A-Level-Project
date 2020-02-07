@@ -160,13 +160,26 @@ img {
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <form action="" method="post">
+        <p>
+          {{form.username.label}} <br>
+          {{form.username(size=30)}}
+        </p>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+        <p>
+          {{form.password.label}} <br>
+          {{form.password(size=30)}}
+        </p>
+
+        <p>
+          {{form.remember}}
+        </p>
         
-      <button type="submit">Login</button>
+        <p>
+          {{form.submit}} <br>
+        </p>
+
+      </form>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">

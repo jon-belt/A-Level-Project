@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for
+from forms import LoginForm
 app = Flask(__name__)
 
 app.config['SECRET KEY'] = 'd0f59ff548e889290c6bf21f05d52afc'
@@ -11,6 +12,7 @@ def home():
 
 @app.route("/login")    #defines the HTML loaded for /login
 def about():
+    form = LoginForm
     return render_template('login.html', title='Login')
 
 

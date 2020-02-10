@@ -1,5 +1,5 @@
 from datetime import date
-from run import db 
+from itroom import db 
 
 
 class User(db.Model):

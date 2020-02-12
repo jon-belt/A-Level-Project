@@ -23,7 +23,13 @@ def login():
 def addUser():
     form = AddUserForm()
     if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode ('utf-8')
+        user = User(userEmail=form.email.data, userPassword = hashed_password)
+        db.session.add(user)
+        db.session.commit()
         print("Account Created")
+        temptext = ("Account created for '", form.email.data, "'." )
+        flash(temptext)
     else:
         flash('Account not created')
     return render_template('addUser.html', title='Login', form=form)

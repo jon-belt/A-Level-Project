@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+{% block content %}
+
+  <div class="center2" style="border-color: white;">
+  <h2 align="center" style="padding: 2.5%;"></h2>
+    <h1>Add a User</h1>   
+      <form method="POST" action="">
+          {{form.hidden_tag() }}
+        <div class="form-group">
+          {{form.email.label}}
+          {% if form.email.errors %}
+          {{form.email(size=30, class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+          {% else %}
+          {{form.email(size=30, class="form-control")}}
+          {% endif %}
+        </div>
+          {{form.password.label}} <br>
+          {{form.password(size=30)}}
+        
+          {{form.submit(class="btn btn-outline-info")}} <br>
+        
+      </form>
+      </div>
+{% endblock content %}

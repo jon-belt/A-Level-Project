@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from itroom import app
-from itroom.forms import LoginForm
+from itroom import app, db, bcrypt
+from itroom.forms import LoginForm, AddUserForm
 from itroom.models import User, Post
 
 @app.route("/")
@@ -13,9 +13,17 @@ def home():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'test@gmail.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
+        if form.email.data == "test" and form.password.data == "password":
             return redirect(url_for('home'))
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+@app.route("/adduser", methods=['GET', 'POST'])       #defines the HTML loaded for /login
+def addUser():
+    form = AddUserForm()
+    if form.validate_on_submit():
+        print("Account Created")
+    else:
+        flash('Account not created')
+    return render_template('addUser.html', title='Login', form=form)

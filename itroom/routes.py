@@ -12,7 +12,7 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])       #defines the HTML loaded for /login
 def login():
-    form = LoginForm()
+    form = LoginForm('')
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.userEmail.data).first()
         if user and bcrypt.check_password_hash(user.userPassword, form.password):
@@ -20,7 +20,7 @@ def login():
             return redirect(url_for('home'))
         else:
             flash('Login Unsucessful, Please check email and password') 
-
+    return render_template('login.html',form=form, title='Login')
 
 @app.route("/adduser", methods=['GET', 'POST'])       #defines the HTML loaded for /adduser
 def addUser():
@@ -32,9 +32,8 @@ def addUser():
         db.session.commit()
         temptext = ("Account created for '", form.email.data, "'." )
         flash(temptext)
-        return render_template('addUser.html', title='Admin', form=AddUserForm)
-
 
     else:
         flash('Account not created')
-        return render_template('addUser.html', title='Admin', form=AddUserForm)
+    form = AddUserForm('/login')
+    return render_template('addUser.html', title='Admin', form=form)

@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect
 from itroom import app, db, bcrypt
 from itroom.forms import LoginForm, AddUserForm
 from itroom.models import User, Post
+from flask_login import login_user
 
 @app.route("/")
 @app.route("/home")     #defines the HTML loaded for /home
@@ -13,13 +14,15 @@ def home():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == "test" and form.password.data == "password":
+        user = User.query.filter_by(email=form.userEmail.data).first()
+        if user and bcrypt.check_password_hash(user.userPassword, form.password):
+            login_user(user, remember=form.remember.data)
             return redirect(url_for('home'))
         else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+            flash('Login Unsucessful, Please check email and password') 
 
-@app.route("/adduser", methods=['GET', 'POST'])       #defines the HTML loaded for /login
+
+@app.route("/adduser", methods=['GET', 'POST'])       #defines the HTML loaded for /adduser
 def addUser():
     form = AddUserForm()
     if form.validate_on_submit():
@@ -27,9 +30,11 @@ def addUser():
         user = User(userEmail=form.email.data, userPassword = hashed_password)
         db.session.add(user)
         db.session.commit()
-        print("Account Created")
         temptext = ("Account created for '", form.email.data, "'." )
         flash(temptext)
+        return render_template('addUser.html', title='Admin', form=AddUserForm)
+
+
     else:
         flash('Account not created')
-    return render_template('addUser.html', title='Login', form=form)
+        return render_template('addUser.html', title='Admin', form=AddUserForm)

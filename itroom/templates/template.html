@@ -7,10 +7,10 @@
 <title>Page Title</title>
 
 	<div class="topnav">
-		<a class="active" href="#home">Home</a>
-		<a href="#ask">Ask a Quesiton</a>
-		<a href="#forum">Forum</a>
-		<a href="#profile">My Profile</a>
+		<a href="{{ url_for('home') }}">Home</a>
+		<a href="{{ url_for('ask') }}">Ask a Quesiton</a>
+		<a href="{{ url_for('forum') }}">Forum</a>
+		<a href="{{ url_for('profile') }}">My Profile</a>
         <img src="/static/WhiteLogo.png" width="10%" alt="Logo" style=" padding:10px 20px 10px 0px; bottom: auto;" align="right" class="logo">
 	</div>
 
@@ -22,8 +22,22 @@
 
 </head>
 <body>
-	{% block content %}
-	{% endblock content %}
+  <main role='main' id="main" class="active">
+	<div class="row">
+		<div class="col-md-8 max-width">
+			{% with messages = get_flashed_messages(with_categories=True) %}
+			{% if messages %}
+				{% for category, message in messages %}
+				<div class="alert alert-{{ category }}">
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+	</main>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

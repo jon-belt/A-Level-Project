@@ -39,6 +39,52 @@ body {
 	border: 3px;
 	border-color: #003e50;}
 
+.max-width{
+	min-width: 100%!important;
+}
+
+/* CSS for home page table */
+.tg  {
+	border-collapse:collapse;
+	border-spacing:0;
+	position: absolute;
+    top: 10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.tg td{
+	font-family:Arial,sans-serif;
+	font-size:14px;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:black;}
+
+.tg th{font-family:Arial, sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:black;}
+
+.tg .tg-9t3c{
+	font-size:16px;
+	font-family:"Lucida Console", Monaco, monospace !important;;
+	/*color:#00009b;
+	border-color:#000000;*/
+	text-align:center;
+	vertical-align:top}
+
 img{
 	display: block;
 	margin-left: auto;
@@ -188,4 +234,3 @@ img{
 		bottom: auto!important;
 		width: 10%!important;
 	}
-	

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 from itroom import app, db, bcrypt
 from itroom.forms import LoginForm, AddUserForm
 from itroom.models import User, Post
@@ -15,7 +15,7 @@ def login():
     form = LoginForm('')
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.userEmail.data).first()
-        if user and bcrypt.check_password_hash(user.userPassword, form.password):
+        if user and bcrypt.check_password_hash(user.userPassword, form.password.data):
             login_user(user, remember=form.remember.data)
             return redirect(url_for('home'))
         else:
@@ -26,14 +26,26 @@ def login():
 def addUser():
     form = AddUserForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode ('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(userEmail=form.email.data, userPassword = hashed_password)
         db.session.add(user)
         db.session.commit()
-        temptext = ("Account created for '", form.email.data, "'." )
-        flash(temptext)
-
-    else:
-        flash('Account not created')
+        temptext = "Account created for ", form.email.data, "." 
+        flash(temptext,'success')
+        return redirect(url_for('addUser'))
+    elif request.method == 'POST' and form.validate_on_submit()==False:
+        flash('Account not created','danger')
     form = AddUserForm('/login')
     return render_template('addUser.html', title='Admin', form=form)
+
+@app.route("/forum", methods=['GET', 'POST'])       #defines the HTML loaded for /forum
+def forum():
+    return render_template('forum.html', title='Forum')
+
+@app.route("/ask", methods=['GET', 'POST'])       #defines the HTML loaded for /ask
+def ask():
+    return render_template('ask.html', title='Ask a Question')
+
+@app.route("/profile", methods=['GET', 'POST'])       #defines the HTML loaded for /profile
+def profile():
+    return render_template('profile.html', title='My Profile')

@@ -1,24 +1,38 @@
 {% extends "template.html" %}
 {% block content %}
-<table class="tg", style="position: absolute; top: 10%; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; min-height: 100vh;">
+<table class="tg", style="position: absolute; top: 10%; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; min-height: 100vh; table-layout: fixed">
     <tr style="height: 40%;">
         <th class="tg-9t3c" colspan="3">
-            <h1>Welcome To The ITRoom</h1>
-            <b>Body about the text</b>
+            <h1 class ="title">Welcome To The ITRoom</h1>
+            <b class ="title">Body about the text</b>
         </th>
         <th class="tg-9t3c">
-            <b>Overview from user's profile - to be set up later</b>
+            <b class ="title">Overview from user's profile - to be set up later</b>
+
+            <form method="post" action="/">
+
+                <a class="btn btn-primary" href="{{ url_for('profile') }}" role="button" style="display:block;">View my <u>Profile</u></a>
+
+            </form>
         </th>
     </tr>
     <tr>
         <td class="tg-9t3c">
-            <b>Button to redirect to 'Ask a Question'</b>
+            <b class ="title" align="center">Have a Question You Want Answering?</b><br>
+            <br>
+            <b style="font-size: 12px; font-family: Arial, Helvetica, sans-serif;">If you're stuck on some homework or coursework, or maybe just have a general Computer Science/ICT related question, ask one of our Computing Ambassadors.</b>
+            <br>
+            <form method="post" action="/">
+
+                <a class="btn btn-primary" href="{{ url_for('ask') }}" role="button">Ask a Question <u>here</u></a>
+
+            </form>
         </td>
         <td class="tg-9t3c">
-            <b>Preview of recently asked questions</b>
+            <b class ="title">Preview of recently asked questions</b>
         </td>
         <td class="tg-9t3c" colspan="2">
-            <b>Slideshow of images to fill up white space</b>
+            <b class ="title">Slideshow of images to fill up white space</b>
         </td>
     </tr>
     </table>

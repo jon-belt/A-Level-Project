@@ -18,3 +18,9 @@ class AddUserForm(FlaskForm):
         user = User.query.filter_by(userEmail=email.data).first()
         if user:
             raise ValidationError('Email already exists in database.')
+
+#class AskForm(FlaskForm):
+ #   question = StringField('Question',validators=[DataRequired(), Question()])
+  #  password = PasswordField('Password', validators=[DataRequired()])
+   # remember = BooleanField('Remember Me')
+    #submit = SubmitField('Login')

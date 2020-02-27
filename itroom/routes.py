@@ -12,14 +12,14 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])       #defines the HTML loaded for /login
 def login():
-    form = LoginForm('')
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.userEmail.data).first()
-        if user and bcrypt.check_password_hash(user.userPassword, form.password.data):
-            login_user(user, remember=form.remember.data)
-            return redirect(url_for('home'))
+    form = LoginForm()
+    if form.validate_on_submit():                   #runs when form is submitted and valid
+        user = User.query.filter_by(userEmail=form.email.data).first()          #checks for login details
+        if user and bcrypt.check_password_hash(user.userPassword, form.password.data):          #Bcrypt checks hashed password
+            login_user(user, remember=form.remember.data)           #runs function to log user in
+            return redirect(url_for('home'))        #redirects user to /home page
         else:
-            flash('Login Unsucessful, Please check email and password') 
+            flash('Login Unsucessful, Please check email and password', 'danger') 
     return render_template('login.html',form=form, title='Login')
 
 @app.route("/adduser", methods=['GET', 'POST'])       #defines the HTML loaded for /adduser
